@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Felis\\Projects and stuff\\Weather Station\\weatherStation\\weatherStation.csproj": {}
+    "C:\\Users\\ROG\\source\\repos\\weatherStationGit\\weatherStationAPI\\weatherStation.csproj": {}
   },
   "projects": {
-    "D:\\Felis\\Projects and stuff\\Weather Station\\weatherStation\\weatherStation.csproj": {
+    "C:\\Users\\ROG\\source\\repos\\weatherStationGit\\weatherStationAPI\\weatherStation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Felis\\Projects and stuff\\Weather Station\\weatherStation\\weatherStation.csproj",
+        "projectUniqueName": "C:\\Users\\ROG\\source\\repos\\weatherStationGit\\weatherStationAPI\\weatherStation.csproj",
         "projectName": "weatherStation",
-        "projectPath": "D:\\Felis\\Projects and stuff\\Weather Station\\weatherStation\\weatherStation.csproj",
+        "projectPath": "C:\\Users\\ROG\\source\\repos\\weatherStationGit\\weatherStationAPI\\weatherStation.csproj",
         "packagesPath": "C:\\Users\\ROG\\.nuget\\packages\\",
-        "outputPath": "D:\\Felis\\Projects and stuff\\Weather Station\\weatherStation\\obj\\",
+        "outputPath": "C:\\Users\\ROG\\source\\repos\\weatherStationGit\\weatherStationAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -41,6 +41,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
