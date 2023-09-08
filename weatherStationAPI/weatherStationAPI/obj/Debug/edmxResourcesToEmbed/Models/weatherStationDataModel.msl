@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="weatherStationModelStoreContainer" CdmEntityContainer="weatherStationDBContext">
+    <EntitySetMapping Name="weatherStations">
+      <EntityTypeMapping TypeName="weatherStationModel.weatherStation">
+        <MappingFragment StoreEntitySet="weatherStation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ws_name" ColumnName="ws_name" />
+          <ScalarProperty Name="site" ColumnName="site" />
+          <ScalarProperty Name="portfolio" ColumnName="portfolio" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
