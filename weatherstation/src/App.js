@@ -1,9 +1,21 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import ReactMapGl, { Marker } from "react-map-gl";
+import * as React from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import Map, {
+  Marker,
+  Popup,
+  NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+  GeolocateControl
+} from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import Pin from './pin.js';
 
 function App() {
   const [data, setData] = useState([]);
+  const [popupInfo, setPopupInfo] = useState(null);
+
 
   useEffect(() => {
     // Fetch data from the API when the component mounts
@@ -24,42 +36,52 @@ function App() {
       });
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
-  const [viewPort, setViewPort] = useState({
-    latitude: -37.840935,
-    longitude: 144.946457,
-    zoom: 5,
-  });
+  const pins = useMemo(
+    () =>
+      data.map((item, index) => (
+        <Marker
+          key={`marker-${index}`}
+          longitude={item.longitude}
+          latitude={item.latitude}
+          anchor="bottom"
+          onClick={e => {
+            // If we let the click event propagates to the map, it will immediately close the popup
+            // with `closeOnClick: true`
+            e.originalEvent.stopPropagation();
+            setPopupInfo(item);
+          }}
+        >
+          <Pin />
+        </Marker>
+
+      )),
+    []
+  );
+
 
   return (
-    <div className="App">
-      <div style={{ width: "100vh", height: "100vh" }}>
-        <ReactMapGl
-          {...viewPort}
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          width="100%"
-          height="100%"
-          mapStyle="https://api.mapbox.com/styles/v1/gabriellajohari/clma6onn9012301r66zogcbfc.html?title=view&access_token=pk.eyJ1IjoiZ2FicmllbGxham9oYXJpIiwiYSI6ImNsbThqaDk2czA4ejMzdnM2MTFuMXZwbjIifQ.0_oO-uF3aP_TvGHlZzFehw&zoomwheel=true&fresh=true#2/37.75/-92.25"
-        >
-          {data.map(item => (
-            <Marker
-              key={item.id}
-              latitude={item.latitude}
-              longitude={item.longitude}
-            >
-              <div>POINTER</div>
-            </Marker>
-          ))}
-        </ReactMapGl>
+    <>
+      <Map
+        initialViewState={{
+          latitude: -37.840935,
+          longitude: 144.946457,
+          zoom: 5,
+          bearing: 0,
+          pitch: 0
+        }}
+        // mapStyle="mapbox://styles/gabriellajohari/clma6onn9012301r66zogcbfc"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
 
-      </div>
+        mapboxAccessToken="pk.eyJ1IjoiZ2FicmllbGxham9oYXJpIiwiYSI6ImNsbWFmbjI5NDBsemszcW1iMGlydWM4M3MifQ.gEJU0ob-x4XuHUpVoa9UHQ"
+      >
 
-      {/* {data.map(item => (
+        {pins}
 
-        <div>{item.ws_name},{item.longitude},{item.latitude}</div>
-      ))} */}
-    </div>
+      </Map>
 
+    </>
   );
+
 }
 
 export default App;
