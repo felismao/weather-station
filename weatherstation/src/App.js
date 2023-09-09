@@ -52,6 +52,7 @@ function App() {
           }}
         >
           <Pin />
+
         </Marker>
 
       )),
@@ -63,8 +64,8 @@ function App() {
     <>
       <Map
         initialViewState={{
-          latitude: -37.840935,
-          longitude: 144.946457,
+          latitude: -34.088539, 
+          longitude: 146.503152,
           zoom: 5,
           bearing: 0,
           pitch: 0
@@ -76,6 +77,25 @@ function App() {
       >
 
         {pins}
+
+        {popupInfo && (
+          <Popup
+            anchor="top"
+            longitude={Number(popupInfo.longitude)}
+            latitude={Number(popupInfo.latitude)}
+            onClose={() => setPopupInfo(null)}
+          >
+            <div>
+              Name: {popupInfo.ws_name} <br></br> 
+              Site: {popupInfo.site}<br></br>
+              State: {popupInfo.state}<br></br>
+              Portfolio: {popupInfo.portfolio}<br></br>
+              {' '}
+
+            </div>
+
+          </Popup>
+        )}
 
       </Map>
 
