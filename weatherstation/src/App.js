@@ -9,12 +9,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Pin from './pin.js';
 
 function App() {
+
   const [data, setData] = useState([]);
   const [popupInfo, setPopupInfo] = useState(null);
   const [filtered, setFiltered] = useState();
 
 
   useEffect(() => {
+    
     // Fetch data from the API when the component mounts
     fetch('http://localhost:63268/api/weatherStations', {
     })
@@ -26,6 +28,7 @@ function App() {
       })
       .then(data => {
         setFiltered(data);
+        setData(data);
         console.log(data);
       })
       .catch(error => {
@@ -64,12 +67,7 @@ function App() {
 
   return (
     <>
-      {/* <div>
-        <label for="State">Choose state:</label>
-        <input type ="text" placeholder='search' onChange={f=>handleFilter(f.target.value)}/>
-      </div> */}
-
-      <select onChange={f => handleFilter(f.target.value)} >
+      <select onChange={f => handleFilter(f.target.value) || null}  >
         <option value="">All State</option>
         <option value="VIC">VIC</option>
         <option value="NSW">NSW</option>
@@ -84,7 +82,7 @@ function App() {
           bearing: 0,
           pitch: 0
         }}
-        // mapStyle="mapbox://styles/gabriellajohari/clma6onn9012301r66zogcbfc"
+        // mapStyle="mapbox://styles/gabriellajohari/clmd8lpk4015d01rf8ekj3xqt"
         mapStyle="mapbox://styles/mapbox/dark-v9"
 
 
