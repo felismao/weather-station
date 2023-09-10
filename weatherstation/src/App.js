@@ -3,11 +3,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import Map, {
   Marker,
-  Popup,
-  NavigationControl,
-  FullscreenControl,
-  ScaleControl,
-  GeolocateControl
+  Popup
 } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Pin from './pin.js';
@@ -15,6 +11,7 @@ import Pin from './pin.js';
 function App() {
   const [data, setData] = useState([]);
   const [popupInfo, setPopupInfo] = useState(null);
+  const [filtered, setFiltered] = useState();
 
 
   useEffect(() => {
@@ -28,13 +25,18 @@ function App() {
         return response.json();
       })
       .then(data => {
-        setData(data);
+        setFiltered(data);
         console.log(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, [])
+
+  const handleFilter = (value) => {
+    const res = filtered.filter(f => f.state.includes(value))
+    setData(res);
+  }
 
   const pins = useMemo(
     () =>
@@ -62,16 +64,29 @@ function App() {
 
   return (
     <>
+      {/* <div>
+        <label for="State">Choose state:</label>
+        <input type ="text" placeholder='search' onChange={f=>handleFilter(f.target.value)}/>
+      </div> */}
+
+      <select onChange={f => handleFilter(f.target.value)} >
+        <option value="">All State</option>
+        <option value="VIC">VIC</option>
+        <option value="NSW">NSW</option>
+        <option value="SA">SA</option>
+        <option value="QLD">QLD</option>
+      </select>
       <Map
         initialViewState={{
-          latitude: -34.088539, 
+          latitude: -34.088539,
           longitude: 146.503152,
-          zoom: 5,
+          zoom: 4,
           bearing: 0,
           pitch: 0
         }}
         // mapStyle="mapbox://styles/gabriellajohari/clma6onn9012301r66zogcbfc"
         mapStyle="mapbox://styles/mapbox/dark-v9"
+
 
         mapboxAccessToken="pk.eyJ1IjoiZ2FicmllbGxham9oYXJpIiwiYSI6ImNsbWFmbjI5NDBsemszcW1iMGlydWM4M3MifQ.gEJU0ob-x4XuHUpVoa9UHQ"
       >
@@ -86,7 +101,7 @@ function App() {
             onClose={() => setPopupInfo(null)}
           >
             <div>
-              Name: {popupInfo.ws_name} <br></br> 
+              Name: {popupInfo.ws_name} <br></br>
               Site: {popupInfo.site}<br></br>
               State: {popupInfo.state}<br></br>
               Portfolio: {popupInfo.portfolio}<br></br>
@@ -98,6 +113,7 @@ function App() {
         )}
 
       </Map>
+
 
     </>
   );
