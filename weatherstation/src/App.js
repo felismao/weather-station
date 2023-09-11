@@ -101,7 +101,7 @@ function App() {
               Site: {popupInfo.getweatherStation.site}<br></br>
               State: {popupInfo.getweatherStation.state}<br></br>
               Portfolio: {popupInfo.getweatherStation.portfolio}<br></br>
-              measured: {popupInfo.getstationData.name}<br></br>
+              measured: {popupInfo.getstationData.long_name}<br></br>
               unit : {popupInfo.getstationData.unit}<br></br>
               AirTemp: {popupInfo.getstationData.AirTemp} <br></br>
               Time :{popupInfo.getstationData.Timestamp}<br></br>
