@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="stationDataDBContext">
+    <EntitySetMapping Name="stationDatas">
+      <EntityTypeMapping TypeName="Models.stationData">
+        <MappingFragment StoreEntitySet="stationData">
+          <ScalarProperty Name="var_id" ColumnName="var_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="long_name" ColumnName="long_name" />
+          <ScalarProperty Name="AirTemp" ColumnName="AirTemp" />
+          <ScalarProperty Name="GHI" ColumnName="GHI" />
+          <ScalarProperty Name="WD" ColumnName="WD" />
+          <ScalarProperty Name="WS" ColumnName="WS" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

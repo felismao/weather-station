@@ -188,10 +188,29 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\stationDatasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\weatherStationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stationData.cs">
+      <DependentUpon>stationdataDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stationdataDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stationdataDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stationdataDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stationdataDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stationdataDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stationdataDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\weatherStation.cs">
       <DependentUpon>weatherStationDataModel.tt</DependentUpon>
@@ -222,6 +241,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\stationdataDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>stationdataDataModel.edmx</DependentUpon>
+      <LastGenOutput>stationdataDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\stationdataDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>stationdataDataModel.edmx</DependentUpon>
+      <LastGenOutput>stationdataDataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\weatherStationDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>weatherStationDataModel.Context.cs</LastGenOutput>
@@ -259,6 +288,13 @@
     </EntityDeploy>
     <Content Include="Models\weatherStationDataModel.edmx.diagram">
       <DependentUpon>weatherStationDataModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\stationdataDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>stationdataDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\stationdataDataModel.edmx.diagram">
+      <DependentUpon>stationdataDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
