@@ -188,12 +188,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JoinTableController.cs" />
     <Compile Include="Controllers\stationDatasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\weatherStationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\JoinTable.cs" />
     <Compile Include="Models\stationData.cs">
       <DependentUpon>stationdataDataModel.tt</DependentUpon>
     </Compile>
@@ -212,6 +214,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>stationdataDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\stationDataModel.cs">
+      <DependentUpon>StationsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StationsDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StationsDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StationsDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StationsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StationsDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StationsDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\weatherStation.cs">
       <DependentUpon>weatherStationDataModel.tt</DependentUpon>
     </Compile>
@@ -229,6 +249,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>weatherStationDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\weatherStationModel.cs">
+      <DependentUpon>StationsDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -250,6 +273,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>stationdataDataModel.edmx</DependentUpon>
       <LastGenOutput>stationdataDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StationsDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StationsDataModel.edmx</DependentUpon>
+      <LastGenOutput>StationsDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StationsDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StationsDataModel.edmx</DependentUpon>
+      <LastGenOutput>StationsDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="Models\weatherStationDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -295,6 +328,13 @@
     </EntityDeploy>
     <Content Include="Models\stationdataDataModel.edmx.diagram">
       <DependentUpon>stationdataDataModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\StationsDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StationsDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\StationsDataModel.edmx.diagram">
+      <DependentUpon>StationsDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

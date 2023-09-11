@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="weatherStationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="stationData">
+          <Key>
+            <PropertyRef Name="var_id" />
+          </Key>
+          <Property Name="var_id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" />
+          <Property Name="name" Type="nchar" MaxLength="30" />
+          <Property Name="unit" Type="nchar" MaxLength="30" />
+          <Property Name="long_name" Type="nchar" MaxLength="30" />
+          <Property Name="AirTemp" Type="float" />
+          <Property Name="GHI" Type="float" />
+          <Property Name="WD" Type="float" />
+          <Property Name="WS" Type="float" />
+          <Property Name="Timestamp" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="weatherStationModels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ws_name" Type="varchar" MaxLength="50" />
+          <Property Name="site" Type="varchar" MaxLength="50" />
+          <Property Name="portfolio" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="5" />
+          <Property Name="latitude" Type="real" Nullable="false" />
+          <Property Name="longitude" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="weatherStationDBModelStoreContainer">
+          <EntitySet Name="stationData" EntityType="Self.stationData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="weatherStationModels" EntityType="Self.weatherStationModels" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="weatherStationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="stationData">
+          <Key>
+            <PropertyRef Name="var_id" />
+          </Key>
+          <Property Name="var_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="unit" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="long_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="AirTemp" Type="Double" />
+          <Property Name="GHI" Type="Double" />
+          <Property Name="WD" Type="Double" />
+          <Property Name="WS" Type="Double" />
+          <Property Name="Timestamp" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="weatherStationModel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ws_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="site" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="portfolio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="Single" Nullable="false" />
+          <Property Name="longitude" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="combinedDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="stationDatas" EntityType="Self.stationData" />
+          <EntitySet Name="weatherStationModels" EntityType="Self.weatherStationModel" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="weatherStationDBModelStoreContainer" CdmEntityContainer="combinedDBContext">
+          <EntitySetMapping Name="stationDatas">
+            <EntityTypeMapping TypeName="weatherStationDBModel.stationData">
+              <MappingFragment StoreEntitySet="stationData">
+                <ScalarProperty Name="var_id" ColumnName="var_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="long_name" ColumnName="long_name" />
+                <ScalarProperty Name="AirTemp" ColumnName="AirTemp" />
+                <ScalarProperty Name="GHI" ColumnName="GHI" />
+                <ScalarProperty Name="WD" ColumnName="WD" />
+                <ScalarProperty Name="WS" ColumnName="WS" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="weatherStationModels">
+            <EntityTypeMapping TypeName="weatherStationDBModel.weatherStationModel">
+              <MappingFragment StoreEntitySet="weatherStationModels">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ws_name" ColumnName="ws_name" />
+                <ScalarProperty Name="site" ColumnName="site" />
+                <ScalarProperty Name="portfolio" ColumnName="portfolio" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
