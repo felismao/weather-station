@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useMemo, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
 import Map, {
   Marker,
   Popup
@@ -61,7 +60,7 @@ function App() {
         </Marker>
 
       )),
-    []
+    [data]
   );
 
 
@@ -82,8 +81,8 @@ function App() {
           bearing: 0,
           pitch: 0
         }}
-        // mapStyle="mapbox://styles/gabriellajohari/clmd8lpk4015d01rf8ekj3xqt"
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle="mapbox://styles/gabriellajohari/clmd8lpk4015d01rf8ekj3xqt"
+        // mapStyle="mapbox://styles/mapbox/dark-v9"
 
 
         mapboxAccessToken="pk.eyJ1IjoiZ2FicmllbGxham9oYXJpIiwiYSI6ImNsbWFmbjI5NDBsemszcW1iMGlydWM4M3MifQ.gEJU0ob-x4XuHUpVoa9UHQ"
