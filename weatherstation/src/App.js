@@ -13,11 +13,10 @@ function App() {
   const [popupInfo, setPopupInfo] = useState(null);
   const [filtered, setFiltered] = useState();
 
-
+  // Fetch data for weatherStations
   useEffect(() => {
-    
-    // Fetch data from the API when the component mounts
-    fetch('http://localhost:63268/api/weatherStations', {
+    // Fetch data from the API 
+    fetch('http://localhost:63268/api/JoinTable', {
     })
       .then(response => {
         if (!response.ok) {
@@ -36,7 +35,7 @@ function App() {
   }, [])
 
   const handleFilter = (value) => {
-    const res = filtered.filter(f => f.state.includes(value))
+    const res = filtered.filter(f => f.getweatherStation.state.includes(value))
     setData(res);
   }
 
@@ -45,8 +44,8 @@ function App() {
       data.map((item, index) => (
         <Marker
           key={`marker-${index}`}
-          longitude={item.longitude}
-          latitude={item.latitude}
+          longitude={item.getweatherStation.longitude}
+          latitude={item.getweatherStation.latitude}
           anchor="bottom"
           onClick={e => {
             // If we let the click event propagates to the map, it will immediately close the popup
@@ -81,8 +80,8 @@ function App() {
           bearing: 0,
           pitch: 0
         }}
-        mapStyle="mapbox://styles/gabriellajohari/clmd8lpk4015d01rf8ekj3xqt"
-        // mapStyle="mapbox://styles/mapbox/dark-v9"
+        // mapStyle="mapbox://styles/gabriellajohari/clmd8lpk4015d01rf8ekj3xqt"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
 
 
         mapboxAccessToken="pk.eyJ1IjoiZ2FicmllbGxham9oYXJpIiwiYSI6ImNsbWFmbjI5NDBsemszcW1iMGlydWM4M3MifQ.gEJU0ob-x4XuHUpVoa9UHQ"
@@ -93,15 +92,23 @@ function App() {
         {popupInfo && (
           <Popup
             anchor="top"
-            longitude={Number(popupInfo.longitude)}
-            latitude={Number(popupInfo.latitude)}
+            longitude={Number(popupInfo.getweatherStation.longitude)}
+            latitude={Number(popupInfo.getweatherStation.latitude)}
             onClose={() => setPopupInfo(null)}
           >
             <div>
-              Name: {popupInfo.ws_name} <br></br>
-              Site: {popupInfo.site}<br></br>
-              State: {popupInfo.state}<br></br>
-              Portfolio: {popupInfo.portfolio}<br></br>
+              Name: {popupInfo.getweatherStation.ws_name} <br></br>
+              Site: {popupInfo.getweatherStation.site}<br></br>
+              State: {popupInfo.getweatherStation.state}<br></br>
+              Portfolio: {popupInfo.getweatherStation.portfolio}<br></br>
+              measured: {popupInfo.getstationData.name}<br></br>
+              unit : {popupInfo.getstationData.unit}<br></br>
+              AirTemp: {popupInfo.getstationData.AirTemp} <br></br>
+              Time :{popupInfo.getstationData.Timestamp}<br></br>
+              GHI: {popupInfo.getstationData.GHI} <br></br>
+              Wind Drag: {popupInfo.getstationData.WD}<br></br>
+              Wind Speed: {popupInfo.getstationData.WS}<br></br>
+
               {' '}
 
             </div>
