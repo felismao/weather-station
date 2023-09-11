@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mixDBContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="stationData">
+    <Key>
+      <PropertyRef Name="var_id" />
+    </Key>
+    <Property Name="var_id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="unit" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="long_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="AirTemp" Type="Double" />
+    <Property Name="GHI" Type="Double" />
+    <Property Name="WD" Type="Double" />
+    <Property Name="WS" Type="Double" />
+    <Property Name="Timestamp" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="weatherStation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ws_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="portfolio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="latitude" Type="Double" />
+    <Property Name="longitude" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="mixDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="stationDatas" EntityType="Self.stationData" />
+    <EntitySet Name="weatherStations" EntityType="Self.weatherStation" />
+  </EntityContainer>
+</Schema>

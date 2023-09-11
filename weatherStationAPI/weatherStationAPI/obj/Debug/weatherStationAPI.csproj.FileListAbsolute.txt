@@ -82,7 +82,6 @@ C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\bin\Antlr3.Runtime.pdb
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.csprojAssemblyReference.cache
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.csproj.CoreCompileInputs.cache
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.csproj.CopyComplete
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.dll
@@ -103,6 +102,9 @@ C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\bin\System.Web.Http.Cors.xml
+<<<<<<< HEAD
+C:\Users\ROG\source\repos\weatherStationGit\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.csproj.AssemblyReference.cache
+=======
 D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\weatherStationAPI\bin\weatherStationAPI.dll.config
 D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\weatherStationAPI\bin\weatherStationAPI.dll
 D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\weatherStationAPI\bin\weatherStationAPI.pdb
@@ -208,3 +210,4 @@ D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\
 D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.csproj.CopyComplete
 D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.dll
 D:\Felis\Projects and stuff\weatherstationApp\weather-station\weatherStationAPI\weatherStationAPI\obj\Debug\weatherStationAPI.pdb
+>>>>>>> b50a68f92c7f11ca0f2d6e0e201eb9970c2c3e96

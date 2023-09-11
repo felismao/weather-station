@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="stationData">
+    <Key>
+      <PropertyRef Name="var_id" />
+    </Key>
+    <Property Name="var_id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" />
+    <Property Name="name" Type="nchar" MaxLength="30" />
+    <Property Name="unit" Type="nchar" MaxLength="30" />
+    <Property Name="long_name" Type="nchar" MaxLength="30" />
+    <Property Name="AirTemp" Type="float" />
+    <Property Name="GHI" Type="float" />
+    <Property Name="WD" Type="float" />
+    <Property Name="WS" Type="float" />
+    <Property Name="Timestamp" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="stationData" EntityType="Self.stationData" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
