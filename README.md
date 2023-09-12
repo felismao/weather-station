@@ -3,6 +3,8 @@
 Weather station is a web application that displays weather information overlaid in an interactive map. 
 
 ![image](https://github.com/felismao/weather-station/assets/81837957/788b197d-f2fd-4c58-be19-6eccb4449c08)
+![image](https://github.com/felismao/weather-station/assets/81837957/48f4aa0d-64dc-4b00-afb5-dfe85c97a419)
+
 
 ## Table of contents
 - [Architecture](#architecture)
@@ -26,7 +28,7 @@ Weather station is a web application that displays weather information overlaid 
 ## Installation
 
 1. Clone the repository
-2. Run weatherStationAPI in Visual Studio
+2. Open and weatherStationAPI in Visual Studio
 3. Open weatherstation in visual sudio code
 4. Run npm install
    
